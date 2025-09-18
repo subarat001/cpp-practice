@@ -2,8 +2,9 @@
 #include <vector>
 #include <algorithm>
 #include <string>
-using namespace std;
 #include <map> 
+using namespace std;
+
 
 int kadansAlgorithm(vector<int>& nums) {
     int MaxVal = INT_MIN ;
@@ -245,18 +246,32 @@ int lcm(int a , int b){
     return  a * b / gcd(a , b) ;
 }
 
-main(){
-    vector< vector<int>> num1 = {{1 , 2 , 3} , {4 , 5 , 8} } ;
-    vector<int> num2 = { 4 , 5 , 8} ;
 
-    num1.push_back(num2);
+void insertionsort(vector<int>array){
 
-    if(num1[1] == num2){
-        cout << " true " ;
-    } else {
-        cout << "flase" ;
+    for(int i=1 ; i< array.size() ; i++){
+        int prev = i - 1 ; 
+        int current = array[i];
+
+        while(prev >= 0 && array[prev] > current){
+            array[prev + 1] = array[prev] ;
+            prev-- ; 
+        }
+
+        array[prev+1] = current ;
     }
-    
+}
 
+
+
+main(){
+    vector<vector<int>> matrix = {{1,3,5,7} , {10,11,16,20} , {23,30,34,60}};
+    cout << matrix.size() << endl ;
+    cout << matrix[0].size() << endl ;
+    if(7 >= 8){
+        cout << "yes" ;
+    }else{
+       cout <<"no";
+    }
     return 0 ; 
 }
